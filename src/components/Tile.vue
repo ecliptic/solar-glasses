@@ -1,8 +1,8 @@
 <template>
   <div class="tile">
     <div class="icon" v-if="tile === 'grass'" />
-    <div v-else src="../../assets/images/icons/tree.png">
-      <img class="icon" src="../../assets/images/icons/tree.png" />
+    <div v-else>
+      <img class="icon" src="./static/icons/tree.png" />
     </div>
   </div>
 </template>
