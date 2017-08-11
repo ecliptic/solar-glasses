@@ -1,8 +1,8 @@
 <template>
   <div class="map">
-    <Tile v-for="tile in row1" :key="tile.prompt" :tile="tile" :selectTile="selectTile" />
-    <Tile v-for="tile in row2" :key="tile.prompt" :tile="tile" :selectTile="selectTile" />
-    <Tile v-for="tile in row3" :key="tile.prompt" :tile="tile" :selectTile="selectTile" />
+    <Tile v-for="tile in row1" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
+    <Tile v-for="tile in row2" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
+    <Tile v-for="tile in row3" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     selectTile (tile) {
-      console.log(tile)
+      this.selectedTile = tile
     }
   }
 }
