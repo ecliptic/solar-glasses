@@ -1,7 +1,15 @@
 <template>
   <div class="card">
-    <div  />
-    <Tile v-for="tile in row3" />
+    <div class="image" />
+    <div class="message" />
+    <div class="actions">
+      <button class="action">
+        live
+      </button>
+      <button class="action">
+        die
+      </button>
+    </div>
   </div>
 </template>
 
@@ -15,6 +23,10 @@ export default {
 <style scoped>
 .card {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   left: 50%;
   top: 50%;
   transform: translate(-50% -50%);
@@ -24,6 +36,24 @@ export default {
 }
 
 .image {
+  width: 75%;
+  height: 40%;
+}
 
+.message {
+  width: 75%;
+  height: 30%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 75%;
+  height: 30%;
+}
+
+.action {
+  font-size: 16px;
 }
 </style>
