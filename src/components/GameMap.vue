@@ -1,8 +1,8 @@
 <template>
   <div class="map">
-    <Tile v-for="tile in row1" />
-    <Tile v-for="tile in row2" />
-    <Tile v-for="tile in row3" />
+    <Tile v-for="tile in row1" :tile="tile" />
+    <Tile v-for="tile in row2" :tile="tile" />
+    <Tile v-for="tile in row3" :tile="tile" />
   </div>
 </template>
 
@@ -32,6 +32,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .map {
-
+  width: 100vh;
+  height: 100vh;
 }
 </style>
