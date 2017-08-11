@@ -15,7 +15,7 @@ const gameTiles = tiles.slice().sort(t => {
 })
 
 export default {
-  name: 'Map',
+  name: 'GameMap',
   components: {
     Tile
   },
