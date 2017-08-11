@@ -1,9 +1,9 @@
 <template>
-  <div class="tile" v-on:click="select()" :class="{touched: tile.touched}">
+  <div class="tile" v-on:click="select()" :class="{walked: tile.walked}">
     <div class="icon" v-if="tile.type === 'grass'">
       <img v-if="hasPlayer" class="player" src="static/icons/player.png" />
     </div>
-    <div style="background-image: url('static/icons/tree.png'); background-size: cover;" class="icon tree" v-else>
+    <div style="background-image: url('static/icons/tree.png'); background-size: cover;" :class="{walked: tile.walked}" class="icon tree" v-else>
       <img v-if="hasPlayer" class="player" src="static/icons/player.png" />
     </div>
   </div>
@@ -48,7 +48,7 @@ export default {
   height: 100%;
 }
 
-.touched {
+.walked {
   background: grey !important;
 }
 </style>

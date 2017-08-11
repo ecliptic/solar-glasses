@@ -25,7 +25,7 @@ module.exports = [{
   death_option: 'Try to catch it',
   death_message: 'The bunny pulls a machine gun out.',
   live_option: 'Let it run away',
-  live_message: 'The bunny poops on your shoes.'
+  live_message: 'The bunny poops on your shoes. Move along.'
 }, {
   type: 'grass',
   prompt: 'You come upon a strange mushroom. What do you do?',

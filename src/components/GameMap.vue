@@ -1,23 +1,29 @@
 <template>
-  <div>
-    <div v-if="!dead && !live_message" class="buttonContainer">
+  <center>
+    <h1 v-if="gameStart">Click a tile to Play.</h1>
+    <div v-if="!win_state && !gameStart && !dead && !live_message" class="buttonContainer">
       <h1 class="title">{{selectedTile.prompt}}</h1>
       <p class="button" @click="checkOption(selectedOptions[0])">{{selectedOptions[0]}}</p>
       <p class="button" @click="checkOption(selectedOptions[1])">{{selectedOptions[1]}}</p>
     </div>
-    <div v-if="live_message && !dead">
+    <div v-if="!win_state && live_message && !dead">
       <h2>{{live_message}}</h2>
     </div>
-    <div v-if="!dead" class="map">
+    <div v-if="!win_state && !dead" class="map">
       <Tile v-for="tile in row1" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
       <Tile v-for="tile in row2" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
       <Tile v-for="tile in row3" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
     </div>
-    <div v-if="dead">
+    <div v-if="!win_state && dead">
       <h1>{{selectedTile.death_message}}</h1>
       <h2>You died</h2>
+      <p class="button" @click="playAgain()">Play Again</p>
     </div>
-  </div>
+    <div v-if="win_state">
+      <h1>🎉 Congratulations. You are one with nature.</h1>
+      <p class="button" @click="playAgain()">Play Again</p>
+    </div>
+  </center>
 </template>
 
 <script>
@@ -42,12 +48,13 @@ export default {
       selectedTile: {},
       selectedOptions: [],
       dead: false,
-      live_message: ''
+      live_message: '',
+      win_state: false
     }
   },
   methods: {
     selectTile (tile) {
-      if (this.gameStart || this.selectedTile && this.live_message) {
+      if (!tile.walked && (this.gameStart || this.selectedTile && this.live_message)) {
         this.gameStart = false
         this.live_message = ''
         this.selectedTile = tile
@@ -60,7 +67,13 @@ export default {
       } else {
         this.live_message = this.selectedTile.live_message
         this.$set(this.selectedTile, 'walked', true)
+        if (this.selectedTile.win_state) {
+          this.win_state = true
+        }
       }
+    },
+    playAgain () {
+      window.location.reload()
     }
   }
 }
