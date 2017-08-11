@@ -25,7 +25,7 @@ import Tile from './Tile'
 import tiles from '../lib/tiles'
 
 const gameTiles = tiles.slice().sort(t => {
-  return Math.floor(Math.random() * 2) > 1 ? 1 : -1
+  return Math.floor(Math.random() * 3) >= 1 ? 1 : -1
 })
 
 export default {
