@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div>
-      <p>{{selectedTile.prompt}}</p>
-      <p @click="checkOption(selectedOptions[0])">{{selectedOptions[0]}}</p>
-      <p @click="checkOption(selectedOptions[1])">{{selectedOptions[1]}}</p>
-    </div>
     <div v-if="!dead" class="map">
+      <div class="buttonContainer">
+        <p class="title">{{selectedTile.prompt}}</p>
+        <p class="button" @click="checkOption(selectedOptions[0])">{{selectedOptions[0]}}</p>
+        <p class="button" @click="checkOption(selectedOptions[1])">{{selectedOptions[1]}}</p>
+      </div>
       <Tile v-for="tile in row1" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
       <Tile v-for="tile in row2" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
       <Tile v-for="tile in row3" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
@@ -63,5 +63,28 @@ export default {
   height: 90vh;
   display: flex;
   flex-wrap: wrap;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title {
+  width: 50%;
+}
+
+.button {
+  width: 50%;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
 }
 </style>
