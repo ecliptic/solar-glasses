@@ -1,5 +1,5 @@
 <template>
-  <div class="tile">
+  <div class="tile" v-on:click="select()">
     <div class="icon" v-if="tile.type === 'grass'"></div>
     <div v-else>
       <img class="tree" src="static/icons/tree.png" />
@@ -15,8 +15,14 @@ export default {
   name: 'Tile',
   props: [
     'tile',
-    'hasPlayer'
-  ]
+    'hasPlayer',
+    'selectTile'
+  ],
+  methods: {
+    select () {
+      this.selectTile(this.tile)
+    }
+  }
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div class="map">
-    <Tile v-for="tile in row1" :key="tile.prompt" :tile="tile" :hasPlayer="selectedTile === tile" v-on:click="selectTile(tile)" />
-    <Tile v-for="tile in row2" :key="tile.prompt" :tile="tile" :hasPlayer="selectedTile === tile" v-on:click="selectTile(tile)" />
-    <Tile v-for="tile in row3" :key="tile.prompt" :tile="tile" :hasPlayer="selectedTile === tile" v-on:click="selectTile(tile)" />
+    <Tile v-for="tile in row1" :key="tile.prompt" :tile="tile" :selectTile="selectTile" />
+    <Tile v-for="tile in row2" :key="tile.prompt" :tile="tile" :selectTile="selectTile" />
+    <Tile v-for="tile in row3" :key="tile.prompt" :tile="tile" :selectTile="selectTile" />
   </div>
 </template>
 
@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     selectTile (tile) {
-      console.log('wat')
       console.log(tile)
     }
   }
