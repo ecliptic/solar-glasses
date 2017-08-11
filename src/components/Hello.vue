@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <Tile />
-  </div>
+  <Map />
 </template>
 
 <script>
-import Tile from './Tile'
+import Map from './Map'
 export default {
   name: 'hello',
   data () {

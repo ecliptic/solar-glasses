@@ -1,6 +1,6 @@
 <template>
   <div class="tile">
-    <div class="icon" v-if="type === 'grass'" />
+    <div class="icon" v-if="tile === 'grass'" />
     <div v-else src="../../assets/images/icons/tree.png">
       <img class="icon" src="../../assets/images/icons/tree.png" />
     </div>
@@ -11,7 +11,7 @@
 export default {
   name: 'Tile',
   props: [
-    'type',
+    'tile',
   ],
 }
 </script>
@@ -22,6 +22,8 @@ export default {
   width: 30vh;
   height: 30vh;
   background-color: green;
+  outline-width: 2px;
+  outline-color: black;
 }
 
 .icon {
