@@ -1,8 +1,8 @@
 <template>
   <div class="map">
-    <Tile v-for="tile in row1" :tile="tile" />
-    <Tile v-for="tile in row2" :tile="tile" />
-    <Tile v-for="tile in row3" :tile="tile" />
+    <Tile v-for="tile in row1" :tile="tile" :hasPlayer="selectedTile === tile" v-on:click="selectTile(tile)" />
+    <Tile v-for="tile in row2" :tile="tile" :hasPlayer="selectedTile === tile" v-on:click="selectTile(tile)" />
+    <Tile v-for="tile in row3" :tile="tile" :hasPlayer="selectedTile === tile" v-on:click="selectTile(tile)" />
   </div>
 </template>
 
@@ -23,7 +23,13 @@ export default {
     return {
       row1: [gameTiles[0], gameTiles[1], gameTiles[2]],
       row2: [gameTiles[3], gameTiles[4], gameTiles[5]],
-      row3: [gameTiles[6], gameTiles[7], gameTiles[8]]
+      row3: [gameTiles[6], gameTiles[7], gameTiles[8]],
+      selectedTile: {}
+    }
+  },
+  methods: {
+    selectTile (tile) {
+      console.log(tile)
     }
   }
 }

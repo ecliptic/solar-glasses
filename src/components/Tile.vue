@@ -1,8 +1,11 @@
 <template>
   <div class="tile">
     <div class="icon" v-if="tile.type === 'grass'"></div>
-    <div class="tree" v-else>
-      <img class="icon" src="static/icons/tree.png" />
+    <div v-else>
+      <img class="tree" src="static/icons/tree.png" />
+    </div>
+    <div v-if="hasPlayer">
+      <img class="player" src="static/icons/player.png" />
     </div>
   </div>
 </template>
@@ -11,7 +14,8 @@
 export default {
   name: 'Tile',
   props: [
-    'tile'
+    'tile',
+    'hasPlayer'
   ]
 }
 </script>
@@ -25,6 +29,7 @@ export default {
   outline-width: 2px;
   outline-color: black;
   display: inline-block;
+  cursor: pointer;
 }
 
 .icon {
@@ -33,6 +38,13 @@ export default {
 }
 
 .tree {
+  width: 100%;
+  height: 100%;
   background: brown;
+}
+
+.player {
+  width: 100%;
+  height: 100%;
 }
 </style>
