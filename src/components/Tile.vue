@@ -1,11 +1,10 @@
 <template>
   <div class="tile" v-on:click="select()">
-    <div class="icon" v-if="tile.type === 'grass'"></div>
-    <div v-else>
-      <img class="tree" src="static/icons/tree.png" />
+    <div class="icon" v-if="tile.type === 'grass'">
+      <img v-if="hasPlayer" class="player" src="static/icons/player.png" />
     </div>
-    <div v-if="hasPlayer">
-      <img class="player" src="static/icons/player.png" />
+    <div style="background-image: url('static/icons/tree.png'); background-size: cover;" class="icon tree" v-else>
+      <img v-if="hasPlayer" class="player" src="static/icons/player.png" />
     </div>
   </div>
 </template>
@@ -29,6 +28,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30vh;
   height: 30vh;
   background: green;
@@ -44,8 +46,6 @@ export default {
 }
 
 .tree {
-  width: 100%;
-  height: 100%;
   background: brown;
 }
 
