@@ -7,7 +7,7 @@ import Map from './Map'
 export default {
   name: 'hello',
   components: {
-    Map,
+    Map
   },
   data () {
     return {

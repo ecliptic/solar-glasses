@@ -1,6 +1,5 @@
 <template>
   <div class="card">
-    <img class="image" src="image" />
     <div  />
     <Tile v-for="tile in row3" />
   </div>
@@ -8,7 +7,7 @@
 
 <script>
 export default {
-  name: 'Card',
+  name: 'Card'
 }
 </script>
 
