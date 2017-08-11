@@ -10,6 +10,9 @@
 import Tile from './Tile'
 export default {
   name: 'Map',
+  components: {
+    Tile,
+  },
 }
 </script>
 

@@ -6,6 +6,9 @@
 import Map from './Map'
 export default {
   name: 'hello',
+  components: {
+    Map,
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

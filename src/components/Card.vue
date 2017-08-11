@@ -7,9 +7,8 @@
 </template>
 
 <script>
-import Tile from './Tile'
 export default {
-  name: 'Map',
+  name: 'Card',
 }
 </script>
 
@@ -17,6 +16,9 @@ export default {
 <style scoped>
 .card {
   position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% -50%);
   width: 66%;
   height: 90%;
   background-color: white;
