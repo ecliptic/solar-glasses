@@ -38,7 +38,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .map {
-  width: 100vh;
-  height: 100vh;
+  width: 90vh;
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

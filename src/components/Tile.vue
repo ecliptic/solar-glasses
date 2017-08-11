@@ -28,15 +28,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .tile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 30vh;
   height: 30vh;
   background: green;
-  outline-width: 2px;
-  outline-color: black;
-  display: inline-block;
   cursor: pointer;
 }
 
