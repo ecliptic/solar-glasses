@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div v-if="!dead && !live_message">
-      <h1>{{selectedTile.prompt}}</h1>
-      <p @click="checkOption(selectedOptions[0])">{{selectedOptions[0]}}</p>
-      <p @click="checkOption(selectedOptions[1])">{{selectedOptions[1]}}</p>
+    <div v-if="!dead && !live_message" class="buttonContainer">
+      <h1 class="title">{{selectedTile.prompt}}</h1>
+      <p class="button" @click="checkOption(selectedOptions[0])">{{selectedOptions[0]}}</p>
+      <p class="button" @click="checkOption(selectedOptions[1])">{{selectedOptions[1]}}</p>
     </div>
     <div v-if="live_message && !dead">
       <h2>{{live_message}}</h2>
@@ -73,5 +73,28 @@ export default {
   height: 90vh;
   display: flex;
   flex-wrap: wrap;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title {
+  width: 50%;
+}
+
+.button {
+  width: 50%;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
 }
 </style>
