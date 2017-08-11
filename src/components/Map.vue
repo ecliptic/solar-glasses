@@ -8,10 +8,23 @@
 
 <script>
 import Tile from './Tile'
+import tiles from '../lib/tiles'
+
+const gameTiles = tiles.slice().sort(t => {
+  return Math.floor(Math.random() * 2) > 1 ? 1 : -1
+})
+
 export default {
   name: 'Map',
   components: {
     Tile
+  },
+  data () {
+    return {
+      row1: [gameTiles[0], gameTiles[1], gameTiles[2]],
+      row2: [gameTiles[3], gameTiles[4], gameTiles[5]],
+      row3: [gameTiles[6], gameTiles[7], gameTiles[8]]
+    }
   }
 }
 </script>
