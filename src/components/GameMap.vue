@@ -9,7 +9,7 @@
 <script>
 import Tile from './Tile'
 export default {
-  name: 'Map',
+  name: 'GameMap',
   components: {
     Tile
   }

@@ -1,13 +1,13 @@
 <template>
-  <Map />
+  <GameMap />
 </template>
 
 <script>
-import Map from './Map'
+import GameMap from './GameMap'
 export default {
   name: 'hello',
   components: {
-    Map
+    GameMap
   },
   data () {
     return {
