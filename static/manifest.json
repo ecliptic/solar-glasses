@@ -1,0 +1,13 @@
+{
+  "name": "Offline",
+  "short_name": "offline",
+  "start_url": "../index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4fc3f7",
+  "author": "thomas.castleman@gmail.com & gabriel@ecliptic.io",
+  "description": "A hackathon project. not drunk.",
+  "icons": [
+],
+"splash_pages": null
+}
