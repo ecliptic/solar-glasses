@@ -1,6 +1,6 @@
 <template>
   <div class="tile" v-on:click="select()">
-    <div :class="{desaturate: tile.walked, icon: true, grass: true}" v-if="tile.type === 'grass'">
+    <div :class="{desaturate: tile.walked, icon: true, grass: true}" style="background-image: url('static/icons/grass.png'); background-size: cover;" v-if="tile.type === 'grass'">
       <img v-if="hasPlayer" class="player" src="static/icons/player.png" />
     </div>
     <div :class="{desaturate: tile.walked, icon: true, tree: true}" style="background-image: url('static/icons/tree.png'); background-size: cover;" v-else>
