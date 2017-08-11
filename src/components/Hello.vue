@@ -1,5 +1,8 @@
 <template>
-  <GameMap />
+  <div>
+    <h1 class="title-logo">Stay Unplugged</h1>
+    <GameMap />
+  </div>
 </template>
 
 <script>
@@ -19,6 +22,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-body {
+.title-logo {
+  font-size: 2em;
+  color: green;
+  font-family: 'Walter Turncoat';
 }
 </style>
