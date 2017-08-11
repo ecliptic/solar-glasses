@@ -1,5 +1,5 @@
 <template>
-  <div class="tile" v-on:click="select()">
+  <div class="tile" v-on:click="select()" :class="{touched: tile.touched}">
     <div class="icon" v-if="tile.type === 'grass'">
       <img v-if="hasPlayer" class="player" src="static/icons/player.png" />
     </div>
@@ -46,5 +46,9 @@ export default {
 .player {
   width: 100%;
   height: 100%;
+}
+
+.touched {
+  background: grey !important;
 }
 </style>
