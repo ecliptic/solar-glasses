@@ -1,17 +1,13 @@
 <template>
   <div id="main">
-    <div :id="aspectRatio > 1 ? 'dashboardLandscape' : 'dashboardPortrait'">
-      <h1 class="title-logo">Stay Unplugged</h1>
-      <h1 v-if="gameStart">Click a tile to Play.</h1>
-      <div v-if="!win_state && !gameStart && !dead && !live_message" class="buttonContainer">
-        <h2 class="title">{{selectedTile.prompt}}</h2>
-        <p class="button" @click="checkOption(selectedOptions[0])">{{selectedOptions[0]}}</p>
-        <p class="button" @click="checkOption(selectedOptions[1])">{{selectedOptions[1]}}</p>
-      </div>
-      <div v-if="!win_state && live_message && !dead">
-        <h2>{{live_message}}</h2>
-      </div>
-    </div>
+    <game-dashboard
+      :selectedTile="selectedTile"
+      :live_message="live_message"
+      :win_state="win_state"
+      :dead="dead"
+      :gameStart="gameStart"
+      :aspectRatio="aspectRatio"
+    />
     <game-map
       v-if="!win_state && !dead"
       :selectTile="selectTile"
@@ -31,14 +27,19 @@
 </template>
 
 <script>
+import GameDashboard from './GameDashboard.vue'
 import GameMap from './GameMap'
+
+const viewportWidth = () => document.documentElement.clientWidth
+const viewportHeight = () => document.documentElement.clientHeight
 
 export default {
   name: 'main',
   components: {
-    GameMap
+    GameDashboard,
+    GameMap,
   },
-  data () {
+  data() {
     return {
       gameStart: true,
       selectedTile: {},
@@ -46,95 +47,46 @@ export default {
       live_message: '',
       dead: false,
       win_state: false,
-      aspectRatio: document.documentElement.clientWidth / document.documentElement.clientHeight
+      aspectRatio: viewportWidth() / viewportHeight(),
     }
   },
-  mounted () {
+  mounted() {
     window.addEventListener('resize', this.checkAspectRatio)
   },
-  destroyed () {
+  destroyed() {
     window.removeEventListener('resize', this.checkAspectRatio)
   },
   methods: {
-    checkAspectRatio () {
-      this.aspectRatio = document.documentElement.clientWidth / document.documentElement.clientHeight
+    checkAspectRatio() {
+      this.aspectRatio = viewportWidth() / viewportHeight()
     },
-    selectTile (tile) {
-      if (!tile.walked && (this.gameStart || this.selectedTile && this.live_message)) {
+    selectTile(tile) {
+      if (!tile.walked && (this.gameStart || (this.selectedTile && this.live_message))) {
         this.gameStart = false
         this.live_message = ''
         this.selectedTile = tile
-        this.selectedOptions = Math.floor(Math.random() * 3) >= 1 ? [this.selectedTile.live_option, this.selectedTile.death_option] : [this.selectedTile.death_option, this.selectedTile.live_option]
+        this.selectedOptions = Math.floor(Math.random() * 3) >= 1
+          ? [this.selectedTile.live_option, this.selectedTile.death_option]
+          : [this.selectedTile.death_option, this.selectedTile.live_option]
       }
     },
-    checkOption (option) {
-      if (option === this.selectedTile.death_option) {
-        this.dead = true
-      } else {
-        this.live_message = this.selectedTile.live_message
-        this.$set(this.selectedTile, 'walked', true)
-        if (this.selectedTile.win_state) {
-          this.win_state = true
-        }
-      }
-    },
-    playAgain () {
+    playAgain() {
       window.location.reload()
-    }
-  }
+    },
+  },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.title-logo {
-  font-size: 2em;
-  color: green;
-  font-family: 'Walter Turncoat';
-}
-
-.title {
-  width: 500px;
-}
-
-.buttonContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.button {
-  width: 50%;
-  border: 1px solid black;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: black;
-  color: white;
-}
-
 #main {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-#dashboardPortrait {
-  width: 100vw;
-  height: 50vh;
-  overflow: hidden;
-}
-
-#dashboardLandscape {
-  width: 50vw;
-  height: 100vh;
-  overflow: hidden;
+  width: calc(100vw - 36px);
+  height: calc(100vh - 36px);
+  padding: 18px;
 }
 </style>

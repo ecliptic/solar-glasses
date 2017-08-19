@@ -10,9 +10,9 @@ import MapTile from './MapTile'
 export default {
   name: 'map-row',
   components: {
-    MapTile
+    MapTile,
   },
-  props: ['tiles', 'selectTile', 'selectedTile', 'aspectRatio']
+  props: ['tiles', 'selectTile', 'selectedTile', 'aspectRatio'],
 }
 </script>
 

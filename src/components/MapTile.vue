@@ -1,27 +1,19 @@
 <template>
-  <div :class="aspectRatio > 1 ? 'tileLandscape' : 'tilePortrait'" @click="select()">
-    <div
-      v-if="tile.type === 'grass'"
-      :class="{desaturate: tile.walked, icon: true, grass: true}"
-      style="background-image: url('static/icons/grass.png'); background-size: cover;"
-    >
-      <img
-        v-if="hasPlayer"
-        class="player"
-        src="static/icons/player.png"
-      />
-    </div>
-    <div
-      v-else
-      :class="{desaturate: tile.walked, icon: true, tree: true}"
-      style="background-image: url('static/icons/tree.png'); background-size: cover;"
-    >
-      <img
-        v-if="hasPlayer"
-        class="player"
-        src="static/icons/player.png"
-      />
-    </div>
+  <div
+    @click="select()"
+    :class="{
+      tilePortrait: aspectRatio <= 1,
+      tileLandscape: aspectRatio > 1,
+      desaturate: tile.walked,
+      grass: type === 'grass',
+      tree: type === 'tree',
+    }"
+  >
+    <img
+      v-if="hasPlayer"
+      class="player"
+      src="../assets/icons/player.png"
+    />
   </div>
 </template>
 
@@ -32,46 +24,55 @@ export default {
     'tile',
     'hasPlayer',
     'selectTile',
-    'aspectRatio'
+    'aspectRatio',
   ],
+  data() {
+    function getRandom(minNum, maxNum) {
+      const min = Math.ceil(minNum)
+      const max = Math.floor(maxNum)
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+    return {
+      type: getRandom(0, 1) > 0 ? 'grass' : 'tree',
+    }
+  },
   methods: {
-    select () {
+    select() {
       console.log(this.tile)
       this.selectTile(this.tile)
-    }
-  }
+    },
+  },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .tilePortrait {
-  width: 25vw;
-  max-width: 12.5vh;
-  height: 25vw;
-  max-height: 12.5vh;
+  width: calc(25vw - 9px);
+  max-width: calc(12.5vh - 4.5px);
+  height: calc(25vw - 9px);
+  max-height: calc(12.5vh - 4.5px);
   cursor: pointer;
 }
 
 .tileLandscape {
-  width: 25vh;
-  max-width: 12.5vw;
-  height: 25vh;
-  max-height: 12.5vw;
+  width: calc(25vh - 9px);
+  max-width: calc(12.5vw - 4.5px);
+  height: calc(25vh - 9px);
+  max-height: calc(12.5vw - 4.5px);
   cursor: pointer;
-}
-
-.icon {
-  width: 100%;
-  height: 100%;
 }
 
 .grass {
   background: green;
+  background-image: url('../assets/icons/grass.png');
+  background-size: cover;
 }
 
 .tree {
   background: brown;
+  background-image: url('../assets/icons/tree.png');
+  background-size: cover;
 }
 
 .player {
