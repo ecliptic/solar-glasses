@@ -1,16 +1,23 @@
 <template>
-  <div>
-    <h1 class="title-logo">Stay Unplugged</h1>
-    <h1 v-if="gameStart">Click a tile to Play.</h1>
-    <div v-if="!win_state && !gameStart && !dead && !live_message" class="buttonContainer">
-      <h2 class="title">{{selectedTile.prompt}}</h2>
-      <p class="button" @click="checkOption(selectedOptions[0])">{{selectedOptions[0]}}</p>
-      <p class="button" @click="checkOption(selectedOptions[1])">{{selectedOptions[1]}}</p>
+  <div id="main">
+    <div :id="aspectRatio > 1 ? 'dashboardLandscape' : 'dashboardPortrait'">
+      <h1 class="title-logo">Stay Unplugged</h1>
+      <h1 v-if="gameStart">Click a tile to Play.</h1>
+      <div v-if="!win_state && !gameStart && !dead && !live_message" class="buttonContainer">
+        <h2 class="title">{{selectedTile.prompt}}</h2>
+        <p class="button" @click="checkOption(selectedOptions[0])">{{selectedOptions[0]}}</p>
+        <p class="button" @click="checkOption(selectedOptions[1])">{{selectedOptions[1]}}</p>
+      </div>
+      <div v-if="!win_state && live_message && !dead">
+        <h2>{{live_message}}</h2>
+      </div>
     </div>
-    <div v-if="!win_state && live_message && !dead">
-      <h2>{{live_message}}</h2>
-    </div>
-    <game-map :win_state="win_state" :dead="dead" :selectTile="selectTile" :selectedTile="selectedTile" />
+    <game-map
+      v-if="!win_state && !dead"
+      :selectTile="selectTile"
+      :selectedTile="selectedTile"
+      :aspectRatio="aspectRatio"
+    />
     <div v-if="!win_state && dead">
       <h1>{{selectedTile.death_message}}</h1>
       <h2>You died</h2>
@@ -25,6 +32,7 @@
 
 <script>
 import GameMap from './GameMap'
+
 export default {
   name: 'main',
   components: {
@@ -37,10 +45,20 @@ export default {
       selectedOptions: [],
       live_message: '',
       dead: false,
-      win_state: false
+      win_state: false,
+      aspectRatio: document.documentElement.clientWidth / document.documentElement.clientHeight
     }
   },
+  mounted () {
+    window.addEventListener('resize', this.checkAspectRatio)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.checkAspectRatio)
+  },
   methods: {
+    checkAspectRatio () {
+      this.aspectRatio = document.documentElement.clientWidth / document.documentElement.clientHeight
+    },
     selectTile (tile) {
       if (!tile.walked && (this.gameStart || this.selectedTile && this.live_message)) {
         this.gameStart = false
@@ -96,5 +114,27 @@ export default {
 .button:hover {
   background-color: black;
   color: white;
+}
+
+#main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#dashboardPortrait {
+  width: 100vw;
+  height: 50vh;
+  overflow: hidden;
+}
+
+#dashboardLandscape {
+  width: 50vw;
+  height: 100vh;
+  overflow: hidden;
 }
 </style>

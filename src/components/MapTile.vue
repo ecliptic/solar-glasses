@@ -1,5 +1,5 @@
 <template>
-  <div class="tile" @click="select()">
+  <div :class="aspectRatio > 1 ? 'tileLandscape' : 'tilePortrait'" @click="select()">
     <div
       v-if="tile.type === 'grass'"
       :class="{desaturate: tile.walked, icon: true, grass: true}"
@@ -31,7 +31,8 @@ export default {
   props: [
     'tile',
     'hasPlayer',
-    'selectTile'
+    'selectTile',
+    'aspectRatio'
   ],
   methods: {
     select () {
@@ -44,11 +45,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.tile {
-  width: 30vw;
-  max-width: 20vh;
-  height: 20vh;
-  max-height: 30vw;
+.tilePortrait {
+  width: 25vw;
+  max-width: 12.5vh;
+  height: 25vw;
+  max-height: 12.5vh;
+  cursor: pointer;
+}
+
+.tileLandscape {
+  width: 25vh;
+  max-width: 12.5vw;
+  height: 25vh;
+  max-height: 12.5vw;
   cursor: pointer;
 }
 

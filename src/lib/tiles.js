@@ -55,6 +55,55 @@ module.exports = [{
   live_option: 'Leave it',
   live_message: 'Good on you. Warm beer sucks.'
 }, {
+  type: 'tree',
+  prompt: 'You find warm beer lying in the grass. What do you do?',
+  death_option: 'Drink it',
+  death_message: 'You are sucked into a wormhole inside of the beer can.',
+  live_option: 'Leave it',
+  live_message: 'Good on you. Warm beer sucks.'
+}, {
+  type: 'tree',
+  prompt: 'You find warm beer lying in the grass. What do you do?',
+  death_option: 'Drink it',
+  death_message: 'You are sucked into a wormhole inside of the beer can.',
+  live_option: 'Leave it',
+  live_message: 'Good on you. Warm beer sucks.'
+}, {
+  type: 'tree',
+  prompt: 'You find warm beer lying in the grass. What do you do?',
+  death_option: 'Drink it',
+  death_message: 'You are sucked into a wormhole inside of the beer can.',
+  live_option: 'Leave it',
+  live_message: 'Good on you. Warm beer sucks.'
+}, {
+  type: 'tree',
+  prompt: 'You find warm beer lying in the grass. What do you do?',
+  death_option: 'Drink it',
+  death_message: 'You are sucked into a wormhole inside of the beer can.',
+  live_option: 'Leave it',
+  live_message: 'Good on you. Warm beer sucks.'
+}, {
+  type: 'tree',
+  prompt: 'You find warm beer lying in the grass. What do you do?',
+  death_option: 'Drink it',
+  death_message: 'You are sucked into a wormhole inside of the beer can.',
+  live_option: 'Leave it',
+  live_message: 'Good on you. Warm beer sucks.'
+}, {
+  type: 'tree',
+  prompt: 'You find warm beer lying in the grass. What do you do?',
+  death_option: 'Drink it',
+  death_message: 'You are sucked into a wormhole inside of the beer can.',
+  live_option: 'Leave it',
+  live_message: 'Good on you. Warm beer sucks.'
+}, {
+  type: 'tree',
+  prompt: 'You find warm beer lying in the grass. What do you do?',
+  death_option: 'Drink it',
+  death_message: 'You are sucked into a wormhole inside of the beer can.',
+  live_option: 'Leave it',
+  live_message: 'Good on you. Warm beer sucks.'
+}, {
   type: 'grass',
   prompt: 'You find cell phone coverage. What do you do?',
   death_option: 'Check Facebook',
