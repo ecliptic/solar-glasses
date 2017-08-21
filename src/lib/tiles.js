@@ -116,7 +116,7 @@ module.exports = [{
   prompt: 'You feel the energy draining out of you. You feel like it\'s been years since you last drank a cup of coffee.',
   death_option: 'Coffee? Gross.',
   death_message: 'Your loss.',
-  live_option: 'Single origin, freshly ground, medium-roast coffee slow poured into a V60 at precisely 205 degrees farenheit for exactly 3 minutes and 22 seconds. Not a second more. Not a second less.',
+  live_option: 'Single origin, freshly ground, medium-roast coffee slow poured into a V60 at precisely 205 degrees farenheit.',
   live_message: 'You choke on something. Someone left solar glasses in your coffee. You win!',
   win_state: true,
   consequence: 0,

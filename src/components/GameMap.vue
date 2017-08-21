@@ -4,6 +4,8 @@
       map: true,
       mapLandscape: aspectRatio > 1,
       mapPortrait: aspectRatio <= 1,
+      show: !message,
+      hide: message,
     }"
     :style="{
       height: aspectRatio > 1 ? viewportHeight : `calc(${viewportHeight} / 2)`,
@@ -61,6 +63,7 @@ export default {
     'viewportHeight',
     'backgroundColor',
     'char',
+    'message',
   ],
   computed: {
     configuration() {
@@ -129,10 +132,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .map {
+  background-color: gray;
+}
+
+.show {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: gray;
+}
+
+.hide {
+  display: none;
 }
 
 .mapPortrait {

@@ -1,6 +1,7 @@
 <template>
   <div id="main" :style="{height: viewportHeight}">
     <game-dashboard
+      v-if="!message"
       :selectedTile="selectedTile"
       :live_message="live_message"
       :win_state="win_state"
@@ -18,6 +19,7 @@
       :aspectRatio="aspectRatio"
       :viewportHeight="viewportHeight"
       :char="char"
+      :message="message"
     />
     <div
       v-if="message"
@@ -223,6 +225,7 @@ h1 {
   margin: 0;
   overflow: hidden;
   font-family: 'Press Start 2P', courier, sans-serif;
+  font-size: calc(1.1vw + 1.1vh);
   color: white;
 }
 
@@ -231,7 +234,6 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
   width: calc(100% - 30px);
   height: calc(100% - 30px);
   padding: 30px;
@@ -258,6 +260,7 @@ h1 {
   border-radius: 2px;
   cursor: pointer;
   font-family: 'Press Start 2P', courier, sans-serif;
+  font-size: 1em;
 }
 
 .option:hover {
