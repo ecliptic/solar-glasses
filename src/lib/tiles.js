@@ -27,7 +27,7 @@ module.exports = [{
   type: 'road',
   prompt: 'Traffic is backed up, horribly. Lots of out-of-towners here to see the eclipse.',
   death_option: 'Relax; put some tunes on',
-  death_message: 'You fall asleep to Celine Deon. You lose 2 minutes.',
+  death_message: 'You fall asleep to Celine Dion. You lose 2 minutes.',
   live_option: 'Lay on your horn like you\'ve never laid on it, before',
   live_message: 'The other cars run you off the road. You find there\'s less traffic, here.',
   consequence: 2,
