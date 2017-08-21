@@ -41,6 +41,7 @@ export default {
   },
   data() {
     return {
+      gameTurn: 0,
       gameStart: true,
       selectedTile: {},
       selectedOptions: [],
@@ -88,5 +89,6 @@ export default {
   width: calc(100vw - 36px);
   height: calc(100vh - 36px);
   padding: 18px;
+  margin: 0;
 }
 </style>

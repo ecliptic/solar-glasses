@@ -61,11 +61,15 @@ export default {
   width: calc(100vw - 36px);
   height: calc(50vh - 18px);
   overflow: hidden;
+  background-image: url('/static/images/turn1.png');
+  background-size: cover;
 }
 
 #dashboardLandscape {
   width: calc(50vw - 18px);
   height: calc(100vh - 36px);
   overflow: hidden;
+  background-image: url('/static/images/turn1.png');
+  background-size: cover;
 }
 </style>

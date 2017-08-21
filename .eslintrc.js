@@ -169,10 +169,6 @@ module.exports = {
       'warn',
       'stroustrup'
     ],
-    'capitalized-comments': [
-      'warn',
-      'always'
-    ],
     'comma-dangle': [
       'warn',
       'always-multiline'
@@ -256,14 +252,6 @@ module.exports = {
     ],
     'object-property-newline': [
       'warn'
-    ],
-    'padded-blocks': [
-      'error',
-      {
-        'blocks': 'never',
-        'classes': 'always',
-        'switches': 'always'
-      }
     ],
     'space-before-blocks': [
       'error'

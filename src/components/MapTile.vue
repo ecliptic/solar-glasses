@@ -2,22 +2,23 @@
   <div
     @click="select()"
     :class="{
+      tileBase: true,
       tilePortrait: aspectRatio <= 1,
       tileLandscape: aspectRatio > 1,
       desaturate: tile.walked,
-      grass: type === 'grass',
-      tree: type === 'tree',
     }"
   >
-    <img
-      v-if="hasPlayer"
-      class="player"
-      src="../assets/icons/player.png"
+    <div
+      v-if="tile.type"
+      class="icon"
+      :style="{backgroundImage: `url(/static/images/${tile.type}.png)`}"
     />
   </div>
 </template>
 
 <script>
+import {getRandom} from '../lib/utils'
+
 export default {
   name: 'map-tile',
   props: [
@@ -26,33 +27,46 @@ export default {
     'selectTile',
     'aspectRatio',
   ],
-  data() {
-    function getRandom(minNum, maxNum) {
-      const min = Math.ceil(minNum)
-      const max = Math.floor(maxNum)
-      return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-    return {
-      type: getRandom(0, 1) > 0 ? 'grass' : 'tree',
-    }
-  },
   methods: {
     select() {
-      console.log(this.tile)
       this.selectTile(this.tile)
     },
+  },
+  beforeMount() {
+    if (!this.tile.type) {
+      const randomNum = getRandom(1, 4)
+      switch (randomNum) {
+        case 1: this.tile.type = 'apartment'
+          break
+        case 2: this.tile.type = 'shop'
+          break
+        case 3: this.tile.type = 'office'
+          break
+        case 4: this.tile.type = 'store'
+          break
+        case 5: this.tile.type = 'house'
+          break
+        default: this.tile.type = 'apartment'
+          break
+      }
+    }
   },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.tileBase {
+  background-image: url('/static/images/roadPLAZA.png');
+  background-size: contain;
+  cursor: pointer;
+}
+
 .tilePortrait {
   width: calc(25vw - 9px);
   max-width: calc(12.5vh - 4.5px);
   height: calc(25vw - 9px);
   max-height: calc(12.5vh - 4.5px);
-  cursor: pointer;
 }
 
 .tileLandscape {
@@ -60,24 +74,14 @@ export default {
   max-width: calc(12.5vw - 4.5px);
   height: calc(25vh - 9px);
   max-height: calc(12.5vw - 4.5px);
-  cursor: pointer;
 }
 
-.grass {
-  background: green;
-  background-image: url('../assets/icons/grass.png');
-  background-size: cover;
-}
-
-.tree {
-  background: brown;
-  background-image: url('../assets/icons/tree.png');
-  background-size: cover;
-}
-
-.player {
+.icon {
   width: 100%;
   height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .desaturate {
