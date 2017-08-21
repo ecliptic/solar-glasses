@@ -1,92 +1,63 @@
-# 1. You encounter a bear. What do you do?
-- (Requires Gun) Shoot up into the air
-- (Requires Gun) Shoot the bear
-- (Requires Axe) Hack at the bear with the axe
-- (Requires Stick) Throw the stick at the bear
-- (Requires Stick) Attack the bear with the stick
-- (Requires Warm Beer) Drink warm beer and watch
-- (Requires Dead Bunny) Throw the dead bunny at the bear and run
-- (Requires Axe Guy & Warm Beer) Hold my beer
-- (Requires Axe Guy) Trip companion and run
-- Run away
-- Run at the bear
-- Wave your hands over your head and growl in your most guttural voice
-- Stay very, very still
-- Go into the fetal position
-- Climb a nearby tree
+# 1. You see an elderly woman wearing a pair of solar glasses. What do you do?
+- Steal them and run.
+- Ask the nice lady where she got them from.
 
-# 2. A scruffy man with an axe approaches you. What do you do?
-- (Requires Gun) Aim the gun at him and tell him to give you his axe.
-- (Requires Gun) Aim the gun at him and tell him walk on by
-- (Requires Gun) Aim the gun at him and tell him to come with you
-- (Requires Gun) Shoot the man
-- (Requires Stick) Threaten the man with the stick if he doesn't walk away
-- (Requires Stick) Attack the man with the stick
-- (Requires Stick) Hit the man with the stick
-- (Requires Warm Beer) Drink warm beer and watch
-- (Requires Warm Beer) Offer trade of warm beer for axe
-- (Requires Water) Offer trade of water for axe
-- (Requires Dead Bunny) Offer trade of dead bunny for axe
-- (Requires Smeared Berries on Face) Scream and wave arms like a crazy man
-- Walk on by and don't make eye contact
-- Comment on the weather
-- Ask where you can get cell phone service
-- Ask to borrow his axe
-- Ask him to accompany you
+# 2. You see a taco shop. What do you do?
+- Get in a debate with the owner over hard shells vs. soft shells.
+- Move on. No time for tacos.
 
-# 3. There is nothing. No one. You are all alone. Just you and nature. What do you do?
-- Stay put.
-- Move on.
-- (Requires Warm Beer) Drink warm beer
-- (Requires Water) Drink water
-- (Requires Dead Bunny) Eat dead bunny
-- (Requires Mushroom) Eat the mushroom
-- (Requires Mushroom) Lick the mushroom
-- (Requires Berries) Eat the berries
-- (Requires Berries) Smear berries on your face like warpaint
+# 3. People are lined up out the door of the local ice cream shop. A sign outside reads, "Free solar glasses inside, while supplies last." What do you do?
+- Get in line.
+- Keep moving. No telling how long that line will take.
 
-# 4. A bunny hops into your path. It stops and looks up at you with beady eyes. What do you do?
-- (Requires Gun or Stick or Axe) Kill it
-- Let it run away
-- Try to catch it
+# 4. A man in an alley approaches you. "Psst. I know where you can get some glasses." He looks around left and right to make sure no one is looking. What do you do?
+- See what the man has to offer.
+- Back away and tell the man you're not interested.
 
-# 5. You come upon a strange mushroom. What do you do?
-- Eat it
-- Lick it
-- Take it
-- Leave it alone
-- (Requires Companion) Give it to companion
+# 5. You remember about your neighborhood's "Nextdoor" app, a place for all the cranky and unbalanced members of your community to post things in all caps.
+- Complain about generalized hooliganism.
+- Ask where you can get solar glasses.
 
-# 6. There are red colored berries on a bush in front of you? What do you do?
-- Eat them
-- Take them
-- Smear them on your face like warpaint
-- (Requires Companion) Give them to companion
+# 6. A girl scout is handing out handfuls of solar glasses to passersby. What do you do?
+- Run up and ask her for one.
+- Run up and ask her for a handful.
 
-# 7. You come upon a stream of water. What do you do?
-- Drink some water
-- (Requires berries smeared on face) Wash the berries off your face
-- (Requires empty beer can) Fill empty beer can with water
+# 7. Lots of people are standing around the local park waiting for the eclipse to happen. They're all wearing solar glasses. What do you do?
+- Ask if anyone has extras.
+- Offer $1,000 for the first person who gives you their solar glasses.
 
-# 8. You find warm beer lying in the grass. What do you do?
-- Take it
-- Drink it
-- Leave it
-- (Requires Companion) Give it to companion
+# 8. You feel the energy draining out of you. You feel like it's been years since you last drank a cup of coffee. What do you do? **This is the win encounter. You pick which situation gets solar glasses, and how.**
+- Single origin, freshly ground, medium-roast coffee slow poured into a V60 at precisely 205 degrees farenheit for exactly 3 minutes and 22 seconds. Not a second more. Not a second less.
+- Coffee? Gross.
 
-# 9. You find a gun hidden inside a tree stump. What do you do?
-- Take it
-- Leave it
-- (Requires Companion) Give it to companion
+# 9. A woman with wild hair and eyes blocks the road. She's wearing a sign that says doomsday is near. She says the eclipse is a sign of the devil and that ancient Incan prophecies point to noon, today, as the apocalypse. What do you do?
+- Ask her about other timezones.
+- Tell her you are an angel from the alien planet Morloch and you need through.
 
-# 10. You encounter a utopia project in the middle of the woods. Everyone is high off their rocker. What do you do?
-- Join them
-- Move on
-- (Requires Warm Beer) Trade them warm beer for whatever provisions they have
-- (Requires Gun) Trade them gun for whatever whatever provisions they have
+# 10. You see a handwritten sign in the road. "Call 1-800-ISL-EGIT for free tacos and solar glasses." What do you do?
+- Call the number.
+- Think about tacos. Keep on driving.
 
-# 11. You find cell phone coverage. What do you do?
-- Call 911
-- Call your mom
-- Check Facebook
-- Turn your phone off and step back into the wilderness...
+# 11. You notice a bad wreck up ahead. Paramedics are loading a man onto a stretcher. A glint of sunlight catches your eye. On the dashboard of the wrecked car sit a pair of solar glasses. What do you do?
+- The man won't be needing them anyways... Park nearby and try to steal the solar glasses without being noticed.
+- You're not that desperate. Drive on past.
+
+# 12. Traffic is backed up, horribly. Lots of out-of-towners here to see the eclipse. What do you do?
+- Lay on your horn like you've never laid on it, before.
+- Relax. Put some tunes on.
+
+# 13. You get a text message while driving. It could be about solar glasses. What do you do?
+- Pull over and check the text.
+- Try to tell Siri to read it back to you.
+
+# 14. There's a "road closed" sign ahead. Turning around won't be easy. What do you do?
+- Turn around.
+- Ram through the warning signs. What's the worst that could happen?
+
+# 15. You hear a strange knocking sound coming from the engine. There's not much time left before the eclipse, but the sound is worrying you. What do you do?
+- Pull over and pop the hood.
+- Keep driving.
+
+# 16. A delivery truck speeds by you. The logo on the side reads, "Solar Eclipse Glass Manufacturing Co." What do you do?
+- Race it down, Mad Max style.
+- Call the "How's my driving?" number to complain about it going 35 in a 30.

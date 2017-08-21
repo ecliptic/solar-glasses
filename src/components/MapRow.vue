@@ -1,6 +1,15 @@
 <template>
   <div>
-    <map-tile v-for="tile in tiles" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
+    <map-tile
+      :aspectRatio="aspectRatio"
+      v-for="tile in tiles"
+      :key="tile.prompt"
+      :tile="tile"
+      :selectTile="selectTile"
+      :hasPlayer="selectedTile === tile"
+      :viewportHeight="viewportHeight"
+      :char="char"
+    />
   </div>
 </template>
 
@@ -10,16 +19,22 @@ import MapTile from './MapTile'
 export default {
   name: 'map-row',
   components: {
-    MapTile
+    MapTile,
   },
-  props: ['tiles', 'selectTile', 'selectedTile']
+  props: [
+    'tiles',
+    'selectTile',
+    'selectedTile',
+    'aspectRatio',
+    'viewportHeight',
+    'char',
+  ],
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div {
-  width: 100%;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
