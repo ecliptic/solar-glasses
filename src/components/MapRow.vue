@@ -1,6 +1,15 @@
 <template>
   <div>
-    <map-tile :aspectRatio="aspectRatio" v-for="tile in tiles" :key="tile.prompt" :tile="tile" :selectTile="selectTile" :hasPlayer="selectedTile === tile" />
+    <map-tile
+      :aspectRatio="aspectRatio"
+      v-for="tile in tiles"
+      :key="tile.prompt"
+      :tile="tile"
+      :selectTile="selectTile"
+      :hasPlayer="selectedTile === tile"
+      :viewportHeight="viewportHeight"
+      :char="char"
+    />
   </div>
 </template>
 
@@ -12,7 +21,14 @@ export default {
   components: {
     MapTile,
   },
-  props: ['tiles', 'selectTile', 'selectedTile', 'aspectRatio'],
+  props: [
+    'tiles',
+    'selectTile',
+    'selectedTile',
+    'aspectRatio',
+    'viewportHeight',
+    'char',
+  ],
 }
 </script>
 

@@ -3,16 +3,34 @@
     @click="select()"
     :class="{
       tileBase: true,
-      tilePortrait: aspectRatio <= 1,
-      tileLandscape: aspectRatio > 1,
       desaturate: tile.walked,
+    }"
+    :style="{
+      height: aspectRatio > 1 ? `calc(${viewportHeight} / 4)` : '25vw',
+      maxHeight: aspectRatio > 1 ? '12.5vw' : `calc(${viewportHeight} / 8)`,
+      width: aspectRatio > 1 ? `calc(${viewportHeight} / 4)` : '25vw',
+      maxWidth: aspectRatio > 1 ? '12.5vw' : `calc(${viewportHeight} / 8)`,
     }"
   >
     <div
       v-if="tile.type"
-      class="icon"
+      :class="{
+        icon: true,
+        desaturate: tile.walked,
+      }"
       :style="{backgroundImage: `url(/static/images/${tile.type}.png)`}"
-    />
+    >
+      <div
+        v-if="hasPlayer && !tile.type.includes('road')"
+        class="player"
+        :style="{backgroundImage: `url(/static/images/char${char}.png)`}"
+      />
+      <div
+        v-if="hasPlayer && tile.type.includes('road')"
+        class="player"
+        :style="{backgroundImage: `url(/static/images/carRight.png)`}"
+      />
+    </div>
   </div>
 </template>
 
@@ -26,6 +44,8 @@ export default {
     'hasPlayer',
     'selectTile',
     'aspectRatio',
+    'viewportHeight',
+    'char',
   ],
   methods: {
     select() {
@@ -60,23 +80,13 @@ export default {
   background-image: url('/static/images/roadPLAZA.png');
   background-size: contain;
   cursor: pointer;
-}
-
-.tilePortrait {
-  width: calc(25vw - 9px);
-  max-width: calc(12.5vh - 4.5px);
-  height: calc(25vw - 9px);
-  max-height: calc(12.5vh - 4.5px);
-}
-
-.tileLandscape {
-  width: calc(25vh - 9px);
-  max-width: calc(12.5vw - 4.5px);
-  height: calc(25vh - 9px);
-  max-height: calc(12.5vw - 4.5px);
+  mix-blend-mode: hard-light;
 }
 
 .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   background-size: contain;
@@ -84,7 +94,16 @@ export default {
   background-repeat: no-repeat;
 }
 
+.player {
+  width: 75%;
+  height: 75%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .desaturate {
-  filter: grayscale(1);
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: darken;
 }
 </style>

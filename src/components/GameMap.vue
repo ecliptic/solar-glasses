@@ -1,9 +1,46 @@
 <template>
-  <div :id="aspectRatio > 1 ? 'mapLandscape' : 'mapPortrait'">
-    <map-row :aspectRatio="aspectRatio" :tiles="configuration.row1" :selectTile="selectTile" :selectedTile="selectedTile" />
-    <map-row :aspectRatio="aspectRatio" :tiles="configuration.row2" :selectTile="selectTile" :selectedTile="selectedTile" />
-    <map-row :aspectRatio="aspectRatio" :tiles="configuration.row3" :selectTile="selectTile" :selectedTile="selectedTile" />
-    <map-row :aspectRatio="aspectRatio" :tiles="configuration.row4" :selectTile="selectTile" :selectedTile="selectedTile" />
+  <div
+    :class="{
+      map: true,
+      mapLandscape: aspectRatio > 1,
+      mapPortrait: aspectRatio <= 1,
+    }"
+    :style="{
+      height: aspectRatio > 1 ? viewportHeight : `calc(${viewportHeight} / 2)`,
+    }"
+  >
+    <map-row
+      :aspectRatio="aspectRatio"
+      :tiles="configuration.row1"
+      :selectTile="selectTile"
+      :selectedTile="selectedTile"
+      :viewportHeight="viewportHeight"
+      :char="char"
+    />
+    <map-row
+      :aspectRatio="aspectRatio"
+      :tiles="configuration.row2"
+      :selectTile="selectTile"
+      :selectedTile="selectedTile"
+      :viewportHeight="viewportHeight"
+      :char="char"
+    />
+    <map-row
+      :aspectRatio="aspectRatio"
+      :tiles="configuration.row3"
+      :selectTile="selectTile"
+      :selectedTile="selectedTile"
+      :viewportHeight="viewportHeight"
+      :char="char"
+    />
+    <map-row
+      :aspectRatio="aspectRatio"
+      :tiles="configuration.row4"
+      :selectTile="selectTile"
+      :selectedTile="selectedTile"
+      :viewportHeight="viewportHeight"
+      :char="char"
+    />
   </div>
 </template>
 
@@ -17,7 +54,14 @@ export default {
   components: {
     MapRow,
   },
-  props: ['selectTile', 'selectedTile', 'aspectRatio'],
+  props: [
+    'selectTile',
+    'selectedTile',
+    'aspectRatio',
+    'viewportHeight',
+    'backgroundColor',
+    'char',
+  ],
   computed: {
     configuration() {
       return this.randomConfiguration()
@@ -84,24 +128,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#mapPortrait {
-  width: calc(100vw - 36px);
-  height: calc(50vh - 18px);
+.map {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background: gray;
+  background-color: gray;
 }
 
-#mapLandscape {
-  width: calc(50vw - 18px);
-  height: calc(100vh - 36px);
-  display: flex;
+.mapPortrait {
+  width: calc(100vw);
+  flex-wrap: wrap;
+}
+
+.mapLandscape {
+  width: calc(50vw);
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  background: gray;
 }
 </style>
