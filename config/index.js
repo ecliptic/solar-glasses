@@ -1,5 +1,6 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   build: {
@@ -33,6 +34,29 @@ module.exports = {
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: false
+    cssSourceMap: false,
+    plugins: [
+      new FaviconsWebpackPlugin({
+      logo: '../static/favicon.png',
+      prefix: 'favicons/',
+      emitStats: true,
+      statsFilename: 'favicons.json',
+      inject: true,
+      background: '#fff',
+      title: 'Solar Glasses game by Ecliptic',
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: true,
+      },
+    }),
+    ]
   }
 }
