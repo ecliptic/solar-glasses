@@ -1,7 +1,7 @@
 <template>
   <div id="main" :style="{height: viewportHeight}">
     <game-dashboard
-      v-if="!message"
+      v-if="!message && !dead"
       :selectedTile="selectedTile"
       :live_message="live_message"
       :win_state="win_state"
